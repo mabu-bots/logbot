@@ -4,7 +4,7 @@
   },
   "description": "Discord ログ専用ボット。ログ種別ごとに通知先チャンネルを個別に設定できます。単体構成で、p1228とは接続しません。",
   "devDependencies": {
-    "@types/node": "26.6.6",
+    "@types/node": "26.6.9",
     "prettier": "3.10.1",
     "tsx": "4.23.15",
     "typescript": "7.0.2"
