@@ -570,10 +570,4 @@ export class VoiceSessionTracker {
       }
     }
   }
-
-  // 🌱 全サーバーの VC セッションを照合する
-  seedAll(client: Client, now = Date.now()): void {
-    for (const guild of client.guilds.cache.values())
-      this.seedGuild(guild, now);
-  }
 }

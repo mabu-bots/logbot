@@ -87,8 +87,7 @@ export function hasManageGuild(
   interaction: ChatInputCommandInteraction,
 ): boolean {
   return (
-    interaction.memberPermissions?.has(PermissionFlagsBits.ManageGuild) ??
-    false
+    interaction.memberPermissions?.has(PermissionFlagsBits.ManageGuild) ?? false
   );
 }
 

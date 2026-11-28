@@ -50,8 +50,7 @@ export function integrityCheckDatabaseFile(
   try {
     db = new DatabaseSync(dbPath, { readOnly: true });
     const row = db.prepare("PRAGMA integrity_check").get() as
-      | { integrity_check?: string }
-      | undefined;
+      { integrity_check?: string } | undefined;
     const result = row?.integrity_check ?? "unknown";
     return { exists: true, ok: result === "ok", result };
   } catch (error) {
@@ -211,8 +210,7 @@ export class LogConfigStore {
     // 🔍 起動後の整合性チェック：破損はここで大きく失敗させる。
     //    後から設定の消失として表に出るより良い。
     const after = this.db.prepare("PRAGMA integrity_check").get() as
-      | { integrity_check?: string }
-      | undefined;
+      { integrity_check?: string } | undefined;
     const afterResult = after?.integrity_check ?? "unknown";
     if (afterResult !== "ok") {
       this.db.close();
