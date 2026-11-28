@@ -495,6 +495,12 @@ export class VoiceSessionTracker {
 
   // ----- 5.4 起動時照合 -----
 
+  // 🌱 全サーバーの VC セッションを照合する
+  seedAll(client: Client, now = Date.now()): void {
+    for (const guild of client.guilds.cache.values())
+      this.seedGuild(guild, now);
+  }
+
   // 🌱 保存済みセッションと現在の VC 在室状況を照合する
   // 📝 ready 時に1回、サーバーが利用可能になったときにそのサーバー分だけ呼ぶ。
   seedGuild(guild: Guild, now = Date.now()): void {
